@@ -1,0 +1,29 @@
+{
+  "name": "badtomcat/container",
+  "description": "IOC服务容器管理组件",
+  "type": "project",
+  "keywords": [
+    "container"
+  ],
+  "homepage": "https://github.com/badtomcat/container",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "badtomcat",
+      "email": "531164479@qq.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+        "phpunit/phpunit": "~5.0"
+  },
+  "autoload": {
+    "files": [],
+    "psr-4": {
+      "Badtomcat\\": "src/"
+    }
+  }
+}

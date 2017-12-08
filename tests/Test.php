@@ -27,9 +27,20 @@ class Test extends PHPUnit_Framework_TestCase
         $test->instance("value",123);
         $this->assertEquals(123,$test['value']);
     }
+
+    public function testcallMethod()
+    {
+        $test = new \Badtomcat\Container();
+        $ret = $test->callMethod(cls::class,"action");
+        $this->assertEquals("zzz",$ret);
+    }
 }
 class cls
 {
     public $bar = 'foo';
+    public function action()
+    {
+        return "zzz";
+    }
 }
 

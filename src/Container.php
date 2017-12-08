@@ -116,7 +116,7 @@ class Container implements ArrayAccess
     /**
      * 反射执行方法并实现依赖注入
      *
-     * @param object $class 类
+     * @param string|object $class 类
      * @param string $method 方法
      *
      * @return mixed

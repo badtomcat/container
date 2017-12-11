@@ -34,6 +34,22 @@ class Test extends PHPUnit_Framework_TestCase
         $ret = $test->callMethod(cls::class,"action");
         $this->assertEquals("zzz",$ret);
     }
+
+    /**
+     * @throws Exception
+     */
+    public function callEnv()
+    {
+        $env = [
+            "foo" => "bar"
+        ];
+        $test = new \Badtomcat\Container();
+        $f = (new \ReflectionMethod( "abc", "ca" ));
+
+        $ret = $test->getDependencies($f->getParameters(), $env);
+        $z = $f->invokeArgs($test->build("abc"), $ret);
+        $this->assertEquals("foo-bar",$z);
+    }
 }
 class cls
 {
@@ -43,4 +59,10 @@ class cls
         return "zzz";
     }
 }
-
+class abc
+{
+    public function ca(cls $cls,$foo)
+    {
+        return $cls->bar . "-" . $foo;
+    }
+}

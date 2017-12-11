@@ -38,7 +38,7 @@ class Test extends PHPUnit_Framework_TestCase
     /**
      * @throws Exception
      */
-    public function callEnv()
+    public function testCallEnv()
     {
         $env = [
             "foo" => "bar"

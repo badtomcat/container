@@ -199,11 +199,13 @@ class Container implements ArrayAccess
             //获取参数类型
             $dependency = $parameter->getClass();
             if (is_null($dependency)) {
-                //是变量,有默认值则设置默认值
-                $dependencies[] = $this->resolveNonClass($parameter);
-            } else if (array_key_exists($dependency->name, $env)) {
-                //是一个类,递归解析
-                $dependencies[] = $env[$dependency->name];
+                //是变量,我检查环境变量
+                if (array_key_exists($parameter->getName(), $env)) {
+                    $dependencies[] = $env[$parameter->getName()];
+                } else {
+                    //有默认值则设置默认值
+                    $dependencies[] = $this->resolveNonClass($parameter);
+                }
             } else {
                 //是一个类,递归解析
                 $dependencies[] = $this->build($dependency->name);

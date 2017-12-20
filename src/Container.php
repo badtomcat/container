@@ -208,7 +208,7 @@ class Container implements ArrayAccess
                 }
             } else {
                 //是一个类,递归解析
-                $dependencies[] = $this->build($dependency->name);
+                $dependencies[] = $this->make($dependency->name);
             }
         }
 
